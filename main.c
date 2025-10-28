@@ -30,6 +30,8 @@ double T;       // Temperature
 double J = 1.0; // Coupling constant
 int **lattice;
 
+// Initialize latus with -1 or 1
+// Parallelize
 void initializeLattice() {
   lattice = (int **)malloc(sizeof(int *) * L);
   for (int i = 0; i < L; i++) {
@@ -47,10 +49,10 @@ double calculateTotalEnergy() {
     for (int j = 0; j < L; j++) {
       int spin = lattice[i][j];
 
-      int up = lattice[(i - 1 + L) % L][j];
-      int down = lattice[(i + 1) % L][j];
-      int left = lattice[i][(j - 1 + L) % L];
-      int right = lattice[i][(j + 1) % L];
+      int up = lattice[(i - 1 + L) % L][j]; // pixel above, if i = 0th row, up = last row
+      int down = lattice[(i + 1) % L][j]; // pixel below, if i = last row, down = 0th row
+      int left = lattice[i][(j - 1 + L) % L]; // pixel to the left
+      int right = lattice[i][(j + 1) % L]; // pixel to the right
 
       energy += -J * spin * (up + down + left + right);
     }
@@ -72,10 +74,15 @@ void metropolisHastingsStep() {
   int i = (int)(randomDouble() * L);
   int j = (int)(randomDouble() * L);
 
-  double E_before = calculateTotalEnergy();
+
+  int up = lattice[(i - 1 + L) % L][j]; // pixel above, if i = 0th row, up = last row
+  int down = lattice[(i + 1) % L][j]; // pixel below, if i = last row, down = 0th row
+  int left = lattice[i][(j - 1 + L) % L]; // pixel to the left
+  int right = lattice[i][(j + 1) % L]; // pixel to the right
+
+  double dE = 2 * J * lattice[i][j] * (up + down + left + right);
+
   lattice[i][j] *= -1;
-  double E_after = calculateTotalEnergy();
-  double dE = E_after - E_before;
 
   if (dE <= 0.0) {
     return;
