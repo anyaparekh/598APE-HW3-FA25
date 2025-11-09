@@ -70,7 +70,7 @@ double calculateMagnetization() {
   return mag / (L * L);
 }
 
-void metropolisHastingsStep() {
+inline void metropolisHastingsStep() {
   int i = (int)(randomDouble() * L);
   int j = (int)(randomDouble() * L);
 
