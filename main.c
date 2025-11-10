@@ -9,6 +9,7 @@ float tdiff(struct timeval *start, struct timeval *end) {
 }
 
 unsigned long long seed = 100;
+double exp_prob[2];
 
 unsigned long long randomU64() {
   seed ^= (seed << 21);
@@ -88,9 +89,9 @@ inline void metropolisHastingsStep() {
     return;
   }
 
-  double prob = exp(-dE / T);
-  if (randomDouble() >= prob) {
-    lattice[i][j] *= -1;
+  int ind = (dE/4)-1;
+  if (randomDouble() >= exp_prob[ind]) {
+      lattice[i][j] *= -1;
   }
 }
 
@@ -191,6 +192,8 @@ int main(int argc, const char **argv) {
   L = atoi(argv[1]);
   T = atof(argv[2]);
   int steps = atoi(argv[3]);
+  exp_prob[0] = exp(-4/T);
+  exp_prob[1] = exp(-8/T);
 
   printf("2D Ising Model\n");
   printf("=================================================\n");
