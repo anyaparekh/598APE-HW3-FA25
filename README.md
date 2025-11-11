@@ -2,6 +2,15 @@
 
 This repository contains code for homework 3 of 598APE.
 
+To run each of the optimizations, checkout to its branch!
+### Optimization Branches
+
+| Branch | Description |
+|:-------|:-------------|
+| **opt-1** | Localized energy calculation to reduce redundant lattice traversals and minimize repeated function calls. |
+| **opt-2** | Applied compiler-level optimizations (`-Ofast`, `-march=native`) to leverage CPU-specific vectorization and fast math. |
+| **opt-3** | Inlined the Metropolis–Hastings function to reduce function call overhead and improve cache performance. |
+
 This assignment is relatively simple in comparison to HW1 and HW2 to ensure you have enough time to work on the course project.
 
 In particular, this repository implements a 2D Ising model Monte Carlo simulator (with Metropolis–Hastings algorithm) on an L×L lattice with periodic boundary conditions.
