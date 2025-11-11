@@ -2,7 +2,7 @@
 
 This repository contains code for homework 3 of 598APE.
 
-To run each of the optimizations, checkout to its branch!
+The main branch contains all optimizations. To run each of the optimizations, checkout to its branch!
 ### Optimization Branches
 
 | Branch | Description |
