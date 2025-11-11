@@ -15,10 +15,10 @@ The main branch contains all optimizations. To run each of the optimizations, ch
 
 | Input |
 |:--------------------------------------------------------------|
-| `./main.exe 100 2.269 1e5` |
-| `./main.exe 1024 2.269 1e5` |
-| `./main.exe 1024 2.269 1e8` |
-| `./main.exe 1024 2.269 1e10` |
+| `./main.exe 100 2.269 100000` |
+| `./main.exe 1024 2.269 100000` |
+| `./main.exe 1024 2.269 100000000` |
+| `./main.exe 1024 2.269 10000000000` |
 
 
 This assignment is relatively simple in comparison to HW1 and HW2 to ensure you have enough time to work on the course project.
