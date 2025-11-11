@@ -11,6 +11,16 @@ The main branch contains all optimizations. To run each of the optimizations, ch
 | **opt-2** | Applied compiler-level optimizations (`-Ofast`, `-march=native`) to leverage CPU-specific vectorization and fast math. Inlined the Metropolis–Hastings function to reduce function call overhead. |
 | **main** | Cached probability threshold in metropolis hastings function. |
 
+### Test Cases
+
+| Input |
+|:--------------------------------------------------------------|
+| `./main.exe 100 2.269 1e5` |
+| `./main.exe 1024 2.269 1e5` |
+| `./main.exe 1024 2.269 1e8` |
+| `./main.exe 1024 2.269 1e10` |
+
+
 This assignment is relatively simple in comparison to HW1 and HW2 to ensure you have enough time to work on the course project.
 
 In particular, this repository implements a 2D Ising model Monte Carlo simulator (with Metropolis–Hastings algorithm) on an L×L lattice with periodic boundary conditions.
