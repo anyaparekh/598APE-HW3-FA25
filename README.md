@@ -8,8 +8,8 @@ The main branch contains all optimizations. To run each of the optimizations, ch
 | Branch | Description |
 |:-------|:-------------|
 | **opt-1** | Localized energy calculation to reduce redundant lattice traversals and minimize repeated function calls. |
-| **opt-2** | Applied compiler-level optimizations (`-Ofast`, `-march=native`) to leverage CPU-specific vectorization and fast math. |
-| **opt-3** | Inlined the Metropolis–Hastings function to reduce function call overhead and improve cache performance. |
+| **opt-2** | Applied compiler-level optimizations (`-Ofast`, `-march=native`) to leverage CPU-specific vectorization and fast math. Inlined the Metropolis–Hastings function to reduce function call overhead. |
+| **main** | Cached probability threshold in metropolis hastings function. |
 
 This assignment is relatively simple in comparison to HW1 and HW2 to ensure you have enough time to work on the course project.
 
